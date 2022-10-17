@@ -1,4 +1,4 @@
-use super::utils::TextureManager;
+use crate::utils::TextureManager;
 use sdl2::video::WindowContext;
 use std::sync::Arc;
 use sdl2::rect::Rect;

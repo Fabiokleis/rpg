@@ -1,6 +1,5 @@
 extern crate sdl2;
 use std::time::Duration;
-
 use sdl2::keyboard::Keycode;
 use sdl2::pixels::Color;
 use sdl2::render::WindowCanvas;
@@ -8,12 +7,10 @@ use sdl2::event::Event;
 use sdl2::video::WindowContext;
 use vector2d::Vector2D;
 
-pub mod utils;
-pub mod player;
-pub mod tilesheet;
-pub mod map;
-
-use utils::TextureManager;
+mod tilesheet;
+mod player;
+mod map;
+use super::utils::TextureManager; 
 use player::Player;
 use map::Map;
 
@@ -60,7 +57,7 @@ pub fn run() -> Result<(), String> {
         .build().map_err(|e| e.to_string())?;
 
     let texture_creator = canvas.texture_creator();
-    let mut texture_manager = utils::TextureManager::new(&texture_creator);
+    let mut texture_manager = TextureManager::new(&texture_creator);
     let mut player = Player::new(
         format!("{}{}", get_path(), "sprites/player_sprite.png"),
         PLAYER_POSITION,

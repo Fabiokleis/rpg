@@ -1,7 +1,7 @@
 use vector2d::Vector2D;
 use sdl2::render::WindowCanvas;
 use sdl2::video::WindowContext;
-use super::utils::TextureManager;
+use crate::utils::TextureManager;
 
 pub struct Player {
     texture_path: String, 

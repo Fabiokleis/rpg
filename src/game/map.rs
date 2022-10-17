@@ -1,10 +1,11 @@
 use vector2d::Vector2D;
-use super::utils::TextureManager;
 use sdl2::video::WindowContext;
 use sdl2::render::WindowCanvas;
 use sdl2::rect::Rect;
-use super::tilesheet::Tilesheet;
 use sdl2::render::Texture;
+use super::tilesheet::Tilesheet;
+use crate::utils::TextureManager;
+
 
 pub struct Layer {
     width: u32,
