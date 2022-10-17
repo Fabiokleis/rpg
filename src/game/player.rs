@@ -1,41 +1,55 @@
 use vector2d::Vector2D;
-use sdl2::video::WindowContext;
 use sdl2::render::WindowCanvas;
-use sdl2::render::TextureCreator;
-use sdl2::image::LoadTexture;
+use sdl2::video::WindowContext;
+use super::utils::TextureManager;
+
 pub struct Player {
-    texture_path: String,
+    texture_path: String, 
     position: Vector2D<i32>,
     size: Vector2D<u32>,
-    shape: sdl2::rect::Rect,
     velocity: Vector2D<i32>,
 }
 
 impl Player {
     pub fn new(texture_path: String, position: Vector2D<i32>, size: Vector2D<u32>) -> Self {
-        Player { 
-            texture_path: texture_path,
-            position: position,
-            size: size,
-            shape:  sdl2::rect::Rect::new(position.x, position.y, size.x, size.y),
-            velocity: Vector2D { x: 32, y: 32 }
+        Player {
+            texture_path,
+            position,
+            size,
+            velocity: Vector2D { x: 10, y: 10 },
         }
+    }
+
+    pub fn draw(&self, canvas: &mut WindowCanvas, texture_manager: &mut TextureManager<WindowContext>) -> Result<(), String> {
+        let texture = texture_manager.load(self.texture_path.as_str())?;
+        canvas.copy(&texture, None, sdl2::rect::Rect::new(self.position.x, self.position.y, self.size.x, self.size.y))?;
+        Ok(())
+
+    }
+
+    pub fn texture_path(&self) -> String {
+        self.texture_path.clone()
+    }
+
+    pub fn x(&self) -> i32 {
+        self.position.x
+    }
+
+    pub fn y(&self) -> i32 {
+        self.position.y
+    }
+
+    pub fn width(&self) -> u32 {
+        self.size.x
+    }
+
+    pub fn height(&self) -> u32 {
+        self.size.y
     }
 
     pub fn move_to(&mut self, dir: Vector2D<i32>) {
         self.position.x += dir.x * self.velocity.x;
         self.position.y += dir.y * self.velocity.y;
-        self.shape.set_x(self.position.x);
-        self.shape.set_y(self.position.y);
     }
 
-    pub fn draw(&self, texture_creator: &TextureCreator<WindowContext>, canvas: &mut WindowCanvas) -> Result<(), String> {
-        let player_texture = texture_creator.load_texture(self.texture_path.as_str())?;
-        canvas.copy(&player_texture, None, self.shape)?;
-        Ok(())
-    }
-
-    pub fn shape(&self) -> sdl2::rect::Rect {
-        self.shape
-    }
 }
