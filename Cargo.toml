@@ -10,3 +10,4 @@ edition = "2021"
 sdl2 = { version = "0.35", features = ["image"] }
 tiled = "0.10.2"
 vector2d = "2.2.0"
+specs = { version = "0.16.1", features = ["specs-derive"] }
