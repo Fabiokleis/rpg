@@ -4,17 +4,7 @@ on:
   - push
   - delete
 
-jobs:
-  debug:
-    runs-on: ubuntu-latest
-    name: debug
-    steps:
-      - shell: bash
-        env: 
-          URL: ${{ GITLAB_URL }}
-        run: |
-          echo "$URL"
-      
+jobs: 
   sync:
     runs-on: ubuntu-latest
     name: Git Repo Sync
