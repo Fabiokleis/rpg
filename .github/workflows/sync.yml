@@ -11,7 +11,7 @@ jobs:
     steps:
       - shell: bash
         env: 
-          URL: ${{ secrets.GITLAB_URL }}
+          URL: ${{ GITLAB_URL }}
         run: |
           echo "$URL"
       
