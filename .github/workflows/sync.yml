@@ -10,7 +10,7 @@ jobs:
     name: debug
     steps:
       - run: |
-          echo secrets.${{ GITLAB_URL }}
+          echo ${{ secrets.GITLAB_URL }}
       
   sync:
     runs-on: ubuntu-latest
