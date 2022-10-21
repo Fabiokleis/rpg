@@ -12,7 +12,7 @@ jobs:
       - shell: bash
         env: 
           URL: ${{ secrets.GITLAB_URL }}
-      - run: |
+        run: |
           echo "$URL"
       
   sync:
