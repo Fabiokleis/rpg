@@ -7,13 +7,11 @@ on:
 jobs:
   debug:
     runs-on: ubuntu-latest
-    name: Git Repo Sync
+    name: debug
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    run: |
-      echo "${{ secrets.GITLAB_URL }}"
+      - run: |
+          echo "${{ secrets.GITLAB_URL }}"
+      
   sync:
     runs-on: ubuntu-latest
     name: Git Repo Sync
