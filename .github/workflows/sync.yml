@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - uses: fabiokleis/rpg@v0.1.0
+    - uses: fabiokleis/rpg
       with:
         target-url: ${{ secrets.GITLAB_URL }}
         target-username: ${{ secrets.GITLAB_USER }}
