@@ -1,5 +1,5 @@
 # Rpg
-
+[![GitlabSync](https://github.com/Fabiokleis/rpg/actions/workflows/sync.yml/badge.svg)](https://github.com/Fabiokleis/rpg/actions/workflows/sync.yml)
 ## Description
 A rpg game written in Rust, its a rogue like game.
 
