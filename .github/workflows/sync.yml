@@ -8,11 +8,12 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     name: debug
-    env:
-      URL: ${{ secrets.GITLAB_URL }}
     steps:
+      - shell: bash
+        env: 
+          URL: ${{ secrets.GITLAB_URL }}
       - run: |
-          echo "${{ secrets.GITLAB_URL }} ${{ env.URL }}"
+          echo "$URL"
       
   sync:
     runs-on: ubuntu-latest
